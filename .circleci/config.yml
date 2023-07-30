@@ -1,0 +1,99 @@
+version: 2.1
+orbs:
+
+  # https://circleci.com/developer/orbs/orb/cypress-io/cypress
+  # https://github.com/cypress-io/circleci-orb/tree/v3.1.3
+  cypress: cypress-io/cypress@3.1.3
+executors:
+  default:
+    docker:
+      # https://github.com/cypress-io/cypress-docker-images
+      - image: 'cypress/browsers:latest'
+
+    # https://circleci.com/docs/using-docker/#available-docker-resource-classes
+    resource_class: xlarge
+parameters:
+  ENV:
+    type: string
+    default: prod
+  SPEC:
+    type: string
+    default: skip
+  SPEC_TO_SKIP:
+    type: string
+    default: flaky
+  PARALLELISM:
+    type: integer
+    default: 1
+  BROWSER:
+    type: string
+    default: chrome
+
+# Parameters for rerun-workflow-auto
+  RERUN:
+    type: string
+    default: not
+  RERUN_TIMEOUT:
+    type: integer
+    default: 45000
+  RERUN_LIMIT:
+    type: integer
+    default: 3
+  CIRCLE_WORKFLOW_ID:
+    type: string
+    default: latest
+  CIRCLE_TOKEN:
+    type: string
+    default: default
+
+workflows:
+  cypress-certain-specs:
+    when:
+      and:
+        - not:
+            equal: [ regression, << pipeline.parameters.SPEC >> ]
+        - not:
+            equal: [ smoke, << pipeline.parameters.SPEC >> ]
+    jobs:
+      - cypress/run:
+           name: (<< pipeline.parameters.ENV >>)--<< pipeline.parameters.SPEC >>
+           parallelism: << pipeline.parameters.PARALLELISM >>
+           install-browsers: true
+           cypress-command: |
+             TEST_FILES="$(circleci tests glob "<< pipeline.parameters.SPEC >>" | circleci tests split)"
+             DEBUG=cypress:launcher ./node_modules/.bin/cypress run --browser=<< pipeline.parameters.BROWSER >> --config-file cypress/config/<< pipeline.parameters.ENV >>.config.js --spec ${TEST_FILES//$'\n'/','}  --env grepTags='--@<< pipeline.parameters.SPEC_TO_SKIP >>'
+           post-steps:
+             - store_artifacts:
+                 path: cypress/reports
+  cypress:
+    when:
+      or:
+        - equal: [ regression, << pipeline.parameters.SPEC >> ]
+        - equal: [ smoke, << pipeline.parameters.SPEC >> ]
+    jobs:
+      # run regression
+      - cypress/run:
+           install-browsers: true
+           name: (<< pipeline.parameters.ENV >>--<< pipeline.parameters.SPEC >>--rerun--<< pipeline.parameters.RERUN >>)--checkout
+           parallelism: 1
+           cypress-command: |
+             TEST_FILES="$(circleci tests glob \
+             "cypress/e2e/checkout.cy.js" \
+             | circleci tests split)"
+             ./node_modules/.bin/cypress run --browser=<< pipeline.parameters.BROWSER >> --config-file cypress/config/<< pipeline.parameters.ENV >>.config.js --spec ${TEST_FILES//$'\n'/','} --env grepTags='@<< pipeline.parameters.SPEC >>'
+           post-steps:
+             - store_artifacts:
+                 path: cypress/reports
+      - cypress/run:
+           install-browsers: true
+           name: (<< pipeline.parameters.ENV >>--<< pipeline.parameters.SPEC >>--rerun--<< pipeline.parameters.RERUN >>)--create-an-account-sign-in
+           parallelism: 1
+           cypress-command: |
+             TEST_FILES="$(circleci tests glob \
+             "cypress/e2e/signIn.cy.js" \
+             "cypress/e2e/createAnAccount.cy.js" \
+             | circleci tests split)"
+             ./node_modules/.bin/cypress run --browser=<< pipeline.parameters.BROWSER >> --config-file cypress/config/<< pipeline.parameters.ENV >>.config.js --spec ${TEST_FILES//$'\n'/','} --env grepTags='@<< pipeline.parameters.SPEC >>'
+           post-steps:
+             - store_artifacts:
+                 path: cypress/reports
