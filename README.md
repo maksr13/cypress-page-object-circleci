@@ -49,8 +49,8 @@ Page Object Pattern is used here in meaning that we have separete class for each
 
 ✅ Circle Ci integration is implemented with following abilities:
 - running certain spec / specs on CircleCI
-- running all available specs (regression) on CircleCI using multiple parallel jobs
-- running all available specs (regression) on CircleCI with ability automatically rerun only failed jobs
+- running all available specs with tag `regression` on CircleCI using multiple parallel jobs
+- running all available specs with tag `regression` on CircleCI with ability automatically rerun only failed jobs
 
 #### :hammer_and_wrench: Configuration
 Config files:
