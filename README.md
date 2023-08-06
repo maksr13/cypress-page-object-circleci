@@ -44,7 +44,7 @@ Page Object Pattern is used here in meaning that we have separete class for each
 :file_folder: `.circleci` folder contains config file that allows us the ability to run tests on CricleCi
 
 📝 Reporter
-    - We use cypress-mochawesome-reporter. [Read more](https://www.npmjs.com/package/cypress-mochawesome-reporter). Example of report:
+    - We use `cypress-mochawesome-reporter`. [Read more](https://www.npmjs.com/package/cypress-mochawesome-reporter). Example of report:
 ![image](https://github.com/maksr13/cypress-page-object-circleci/assets/22858879/5b881025-097e-4d81-be6e-3d8a4b6c681e)
 
 ✅ Circle Ci integration is implemented with following abilities:
