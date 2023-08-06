@@ -3,10 +3,11 @@ import { ApiCircleCi } from '../../../helpers/api/apiCircleCi/ApiCircleCi';
 describe('Rerun Workflow Auto', () => {
     /*
      README
-     This script will help as with getting more successful builds while running regression by automatically rerun only failed jobs.
+     This script will help with getting more successful builds while running regression by automatically rerun only failed jobs.
 
      Auto-rerun is limitted to 3 times by default.
 
+     To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values
 
      For using this just add parameter RERUN with value 'true' (or any other value except 'not'), for example:
 
