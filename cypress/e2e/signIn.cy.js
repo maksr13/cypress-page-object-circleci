@@ -3,8 +3,11 @@ import { SignInPage } from '../pages/SignInPage';
 
 describe('Sign In', { tags: '@regression' }, () => {
 
-    it('Should be able to Sign In', () => {
+    beforeEach(() => {
         cy.visit('/');
+    });
+
+    it('Should be able to Sign In', () => {
         cy.contains(BasePage.link, 'Sign In').click();
         cy.get(BasePage.pageTitleWrapper).should('have.text', 'Customer Login').and('be.visible');
         cy.get(SignInPage.emailField).type(Cypress.env('user').email);
