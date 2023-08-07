@@ -5,13 +5,16 @@ import { Utils } from '../helpers/Utils';
 
 describe('Create An Account', { tags: '@regression' }, () => {
 
+    beforeEach(() => {
+        cy.visit('/');
+    });
+
     it('Should be able to register a new account', () => {
         const firstName = Utils.uniquify('Kevin');
         const lastName = Utils.uniquify('Simpson');
         const email = Utils.uniquifyEmail('kevin.simpson@dispostable.com');
         const password = '123890qwerty!';
 
-        cy.visit('/');
         cy.contains(BasePage.link, 'Create an Account').click();
         cy.get(CreateAnAccountPage.firstNameField).type(firstName);
         cy.get(CreateAnAccountPage.lastNameField).type(lastName);
@@ -26,7 +29,6 @@ describe('Create An Account', { tags: '@regression' }, () => {
     });
 
     it('Should not be able to register a new account if required fields are not filled (fill no fields)', () => {
-        cy.visit('/');
         cy.contains(BasePage.link, 'Create an Account').click();
         cy.get(BasePage.submitButton).click();
         cy.get(CreateAnAccountPage.firstNameField).next(CreateAnAccountPage.errorValidatonText).should('have.text', 'This is a required field.').and('be.visible');
@@ -40,7 +42,6 @@ describe('Create An Account', { tags: '@regression' }, () => {
     it('Should not be able to register a new account if required fields are not filled (fill only firstNameField and try to submit form)', () => {
         const firstName = Utils.uniquify('Kevin');
 
-        cy.visit('/');
         cy.contains(BasePage.link, 'Create an Account').click();
         cy.get(CreateAnAccountPage.firstNameField).type(firstName);
         cy.get(BasePage.submitButton).click();
@@ -54,7 +55,6 @@ describe('Create An Account', { tags: '@regression' }, () => {
     it('Should not be able to register a new account if required fields are not filled (fill only lastNameField and try to submit form)', () => {
         const lastName = Utils.uniquify('Simpson');
 
-        cy.visit('/');
         cy.contains(BasePage.link, 'Create an Account').click();
         cy.get(CreateAnAccountPage.lastNameField).type(lastName);
         cy.get(BasePage.submitButton).click();
@@ -69,7 +69,6 @@ describe('Create An Account', { tags: '@regression' }, () => {
     it('Should not be able to register a new account if required fields are not filled (fill only firstNameField and try to submit form)', () => {
         const firstName = Utils.uniquify('Kevin');
 
-        cy.visit('/');
         cy.contains(BasePage.link, 'Create an Account').click();
         cy.get(CreateAnAccountPage.firstNameField).type(firstName);
         cy.get(BasePage.submitButton).click();
@@ -83,7 +82,6 @@ describe('Create An Account', { tags: '@regression' }, () => {
     it('Should not be able to register a new account if required fields are not filled (fill only lastNameField and try to submit form)', () => {
         const lastName = Utils.uniquify('Simpson');
 
-        cy.visit('/');
         cy.contains(BasePage.link, 'Create an Account').click();
         cy.get(CreateAnAccountPage.firstNameField).clear();
         cy.get(CreateAnAccountPage.lastNameField).type(lastName);
@@ -101,7 +99,6 @@ describe('Create An Account', { tags: '@regression' }, () => {
         const lastName = Utils.uniquify('Simpson');
         const email = Utils.uniquifyEmail('kevin.simpson@dispostable.com');
 
-        cy.visit('/');
         cy.contains(BasePage.link, 'Create an Account').click();
         cy.get(CreateAnAccountPage.firstNameField).type(firstName);
         cy.get(CreateAnAccountPage.lastNameField).type(lastName);
@@ -121,7 +118,6 @@ describe('Create An Account', { tags: '@regression' }, () => {
         const email = Utils.uniquifyEmail('kevin.simpson@dispostable.com');
         const password = '123890qwerty!';
 
-        cy.visit('/');
         cy.contains(BasePage.link, 'Create an Account').click();
         cy.get(CreateAnAccountPage.firstNameField).type(firstName);
         cy.get(CreateAnAccountPage.lastNameField).type(lastName);
@@ -142,7 +138,6 @@ describe('Create An Account', { tags: '@regression' }, () => {
         const email = Utils.uniquifyEmail('kevin.simpson@dispostable.com');
         const password = '123890qwerty!';
 
-        cy.visit('/');
         cy.contains(BasePage.link, 'Create an Account').click();
         cy.get(CreateAnAccountPage.firstNameField).type(firstName);
         cy.get(BasePage.submitButton).click();
