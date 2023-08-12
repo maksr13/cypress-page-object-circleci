@@ -58,9 +58,9 @@ Config files:
 2. `plugins/index.js` - Plugins file is where we can programmatically alter the resolved configuration [More info](https://docs.cypress.io/guides/tooling/plugins-guide#Use-Cases)
 
 ## ⛏️ Rerun you workflow from failed automatically
-Corresponding script in placed in `cypress/e2e/tools/rerun_workflow_auto/rerun_workflow_auto.cy.js`
-Api requests that are used here are placed in `cypress/helpers/api/apiCircleCi/ApiCircleCi.js`
-Api payloads that are used here are placed in `cypress/helpers/api/apiCircleCi/ApiCircleCiData.js`
+- Corresponding script in placed in `cypress/e2e/tools/rerun_workflow_auto/rerun_workflow_auto.cy.js`
+- Api requests that are used here are placed in `cypress/helpers/api/apiCircleCi/ApiCircleCi.js`
+- Api payloads that are used here are placed in `cypress/helpers/api/apiCircleCi/ApiCircleCiData.js`
 
      This script will help with getting more successful builds while running regression by automatically rerun only failed jobs.
 
