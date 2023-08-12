@@ -54,6 +54,8 @@ workflows:
             equal: [ regression, << pipeline.parameters.SPEC >> ]
         - not:
             equal: [ smoke, << pipeline.parameters.SPEC >> ]
+        - not:
+            equal: [ skip, << pipeline.parameters.SPEC >> ]            
     jobs:
       - cypress/run:
            name: (<< pipeline.parameters.ENV >>)--<< pipeline.parameters.SPEC >>
