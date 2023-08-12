@@ -3,9 +3,9 @@ import { ApiCircleCiData } from './ApiCircleCiData';
 import { ApiCircleCiMethods } from './ApiCircleCiMethods';
 
 export class ApiCircleCiRequests {
-    apiCircleUrl = '';
-    circleOrgSlug = '';
-    repo = '';
+    apiCircleUrl = 'https://circleci.com/api/v2';
+    circleOrgSlug = 'github/maksr13';
+    repo = 'cypress-page-object-circleci';
     circleToken = '';
 
     data = new ApiCircleCiData();
