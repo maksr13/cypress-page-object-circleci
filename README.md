@@ -1,6 +1,12 @@
 # Cypress Page Object Circle Ci Example
 Example of project with UI tests created using Cypress with Page Object model and integration with Circle Ci using the orb https://circleci.com/developer/orbs/orb/cypress-io/cypress with ability to run tests using multiple parallel jobs
 
+## :gear: Prerequisites:
+
+- [nodejs](https://nodejs.org/en/)
+- [npm](https://docs.npmjs.com/about-npm)
+- [Cypress](https://www.cypress.io/)
+
 ## :gear: Setup
 
 1. `git clone https://github.com/maksr13/cypress-page-object-circleci.git`
