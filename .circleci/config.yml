@@ -47,6 +47,20 @@ parameters:
     default: default
 
 workflows:
+# rerun-workflow-auto should be always at the top of the list (since CircleCi creates pipelines at first from the bottom of the config)
+  rerun-workflow-auto:
+    when:
+      and:
+        - not:
+            equal: [ not, << pipeline.parameters.RERUN >> ]
+    jobs:
+      - cypress/run:
+           name: rerun-workflow-auto-<< pipeline.parameters.CIRCLE_WORKFLOW_ID >>
+           install-browsers: true
+           cypress-command: DEBUG=cypress:launcher ./node_modules/.bin/cypress run --browser=<< pipeline.parameters.BROWSER >> --config-file cypress/config/<< pipeline.parameters.ENV >>.config.js --spec cypress/e2e/tools/rerun_workflow_auto/rerun_workflow_auto.cy.js --env rerun_limit=<< pipeline.parameters.RERUN_LIMIT >>,rerun_timeout=<< pipeline.parameters.RERUN_TIMEOUT >>,circle-workflow-id=<< pipeline.parameters.CIRCLE_WORKFLOW_ID >>,circle-token-from-parameters=<< pipeline.parameters.CIRCLE_TOKEN >>
+           post-steps:
+             - store_artifacts:
+                 path: cypress/reports
   cypress-certain-specs:
     when:
       and:
