@@ -5,7 +5,6 @@ describe('Checkout', { tags: '@regression' }, () => {
         // todo
     });
 
-
     it('Should be able to purchase 2 item', () => {
         // todo
     });
