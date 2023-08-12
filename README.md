@@ -57,3 +57,5 @@ Config files:
 1. `configs/prod.config.js` - Main config file where default behavior of Cypress can be modified. [More info](https://docs.cypress.io/guides/references/configuration). Also here we have default user that we can use for creating our tests. Alternatively and that would be more preferable we can create new user via Api for each spec file.
 2. `plugins/index.js` - Plugins file is where we can programmatically alter the resolved configuration [More info](https://docs.cypress.io/guides/tooling/plugins-guide#Use-Cases)
 
+## ⛏️ Rerun you workflow from failed automatically
+
