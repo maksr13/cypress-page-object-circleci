@@ -76,7 +76,7 @@ Config files:
 
 #### :gear: Setup
 
-- To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values.
+- To start using this script, please go to `../../../helpers/api/apiCircleCi/ApiCircleCi` file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values.
 
 You can get these values like that:
 1. Go to project on CircleCI.
@@ -86,10 +86,10 @@ You can get these values like that:
 5. Click 'Trigger Pipeline' button.
 6. In the list of requests find a request with endpoint "pipeline", you can simply search by this endpoint using search field.
 7. Check URL and get apiCircleUrl, circleOrgSlug and repo values from there.
-8. Update corresponding fields with values above in ../../../helpers/api/apiCircleCi/ApiCircleCi , make pull request and merge this.
+8. Update corresponding fields with values above in `../../../helpers/api/apiCircleCi/ApiCircleCi` , make pull request and merge this.
 
 - Also it needs to create your personal CircleCi API token, please take a look at following information https://circleci.com/docs/managing-api-tokens.
-- After creation personal API token you can update circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi , and push you changes.
+- After creation personal API token you can update circleToken field in the `../../../helpers/api/apiCircleCi/ApiCircleCi` , and push you changes.
 But for security it's better to use CIRCLE_TOKEN parameter while triggering pipeline (please see 'Usage' part of the README).
 
 #### :heavy_check_mark: Usage
@@ -111,7 +111,7 @@ But for security it's better to use CIRCLE_TOKEN parameter while triggering pipe
     - Parameter type - string
     - Name           - RERUN
     - Value          - true (or any other value except 'not')
-7. Add parameter: (it should be used only if you don't have the updated circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi)
+7. Add parameter: (it should be used only if you don't have the updated circleToken field in the `../../../helpers/api/apiCircleCi/ApiCircleCi`)
     - Parameter type - string
     - Name           - CIRCLE_TOKEN
     - Value          - your personal CircleCi API token (please, see 'Setup' part)
@@ -136,7 +136,7 @@ But for security it's better to use CIRCLE_TOKEN parameter while triggering pipe
     - Name           - CIRCLE_WORKFLOW_ID
     - Value          - workflow id 
                             (you can get this from workflow url)
-7. Add parameter: (it should be used only if you don't have the updated circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi)
+7. Add parameter: (it should be used only if you don't have the updated circleToken field in the `../../../helpers/api/apiCircleCi/ApiCircleCi`)
     - Parameter type - string
     - Name           - CIRCLE_TOKEN
     - Value          - your personal CircleCi API token (Please, see 'Setup' part)
@@ -147,8 +147,8 @@ But for security it's better to use CIRCLE_TOKEN parameter while triggering pipe
 1.  Automatically rerun failed jobs for the latest pipeline in project (please change config file staging.config.js to another env if it's needed)
 from command line, run this command.
 
-./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --config-file cypress/config/staging.config.js
+`./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --config-file cypress/config/staging.config.js`
 
 2. Automatically rerun failed jobs for the passed Workflow Id. From command line, run following command (change WORKFLOW_ID  to Workflow Id of pipeline that you want to automatically Rerun From Failed  +  change config file staging.config.js to another env if it's needed).
 
-./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --env circle-workflow-id=WORKFLOW_ID --config-file cypress/config/staging.config.js
+`./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --env circle-workflow-id=WORKFLOW_ID --config-file cypress/config/staging.config.js`
