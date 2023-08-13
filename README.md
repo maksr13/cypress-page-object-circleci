@@ -76,21 +76,21 @@ Config files:
 
 #### :gear: Setup
 
-- To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values
+- To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values.
 
 You can get these values like that:
 1. Go to project on CircleCI.
 2. Select your branch via filter drop-down.
-3. Click 'Trigger Pipeline' button
-4. Open dev tools in your browser and go to 'Network' tab (this step can be different depending on your browser, please google how to check requests in your browser)
-5. Click 'Trigger Pipeline' button
-6. In the list of requests find a request with endpoint "pipeline", you can simply search by this endpoint using search field
-7. Check URL and get apiCircleUrl, circleOrgSlug and repo values from there
-8. Update corresponding fields with values above in ../../../helpers/api/apiCircleCi/ApiCircleCi , make pull request and merge this
+3. Click 'Trigger Pipeline' button.
+4. Open dev tools in your browser and go to 'Network' tab (this step can be different depending on your browser, please google how to check requests in your browser).
+5. Click 'Trigger Pipeline' button.
+6. In the list of requests find a request with endpoint "pipeline", you can simply search by this endpoint using search field.
+7. Check URL and get apiCircleUrl, circleOrgSlug and repo values from there.
+8. Update corresponding fields with values above in ../../../helpers/api/apiCircleCi/ApiCircleCi , make pull request and merge this.
 
-- Also it needs to create your personal CircleCi API token, please take a look at following information https://circleci.com/docs/managing-api-tokens
+- Also it needs to create your personal CircleCi API token, please take a look at following information https://circleci.com/docs/managing-api-tokens.
 - After creation personal API token you can update circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi , and push you changes.
-But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline (please see 'Usage' part of the README)
+But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline (please see 'Usage' part of the README).
 
 #### :heavy_check_mark: Usage
 
@@ -115,14 +115,14 @@ But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline
     - Parameter type - string
     - Name           - CIRCLE_TOKEN
     - Value          - your personal CircleCi API token (please, see 'Setup' part)
-8. Click 'Trigger Pipeline' button and refresh the page (new pipeline will be displayed) and if few jobs will be failed, then they will be rerun automatically
+8. Click 'Trigger Pipeline' button and refresh the page (new pipeline will be displayed) and if few jobs will be failed, then they will be rerun automatically.
 
 
 - Also you can run script for some exact Workflow, for example:   
 
-1. Go to project on CircleCI
-2. Select your branch via filter drop-down
-3. Click 'Trigger Pipeline' button
+1. Go to project on CircleCI.
+2. Select your branch via filter drop-down.
+3. Click 'Trigger Pipeline' button.
 4. Add parameter:
     - Parameter type - string
     - Name           - ENV
@@ -140,15 +140,15 @@ But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline
     - Parameter type - string
     - Name           - CIRCLE_TOKEN
     - Value          - your personal CircleCi API token (Please, see 'Setup' part)
-8. Click 'Trigger Pipeline' button and refresh the page (new pipeline will be displayed) and if few jobs will be failed, then they will be rerun automatically
+8. Click 'Trigger Pipeline' button and refresh the page (new pipeline will be displayed) and if few jobs will be failed, then they will be rerun automatically.
 
 
 - You can also run this script locally. There are 2 options:
 1.  Automatically rerun failed jobs for the latest pipeline in project (please change config file staging.config.js to another env if it's needed)
-from command line, run this command
+from command line, run this command.
 
 ./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --config-file cypress/config/staging.config.js
 
-2. Automatically rerun failed jobs for the passed Workflow Id. From command line, run following command (change WORKFLOW_ID  to Workflow Id of pipeline that you want to automatically Rerun From Failed  +  change config file staging.config.js to another env if it's needed)
+2. Automatically rerun failed jobs for the passed Workflow Id. From command line, run following command (change WORKFLOW_ID  to Workflow Id of pipeline that you want to automatically Rerun From Failed  +  change config file staging.config.js to another env if it's needed).
 
 ./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --env circle-workflow-id=WORKFLOW_ID --config-file cypress/config/staging.config.js
