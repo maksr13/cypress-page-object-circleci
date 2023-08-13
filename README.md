@@ -82,14 +82,14 @@ Setup
 - To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values
 
 You can get these values like that:
-        - Go to project on CircleCI.
-        - Select your branch via filter drop-down.
-        - Click 'Trigger Pipeline' button
-        - Open dev tools in your browser and go to 'Network' tab (this step can be different depending on your browser, please google how to check requests in your browser)
-        - Click 'Trigger Pipeline' button
-        - In the list of requests find a request with endpoint "pipeline", you can simply search by this endpoint using search field
-        - Check URL and get apiCircleUrl, circleOrgSlug and repo values from there
-        - Update corresponding fields with values above in ../../../helpers/api/apiCircleCi/ApiCircleCi , make pull request and merge this
+1. Go to project on CircleCI.
+2. Select your branch via filter drop-down.
+3. Click 'Trigger Pipeline' button
+4. Open dev tools in your browser and go to 'Network' tab (this step can be different depending on your browser, please google how to check requests in your browser)
+5. Click 'Trigger Pipeline' button
+6. In the list of requests find a request with endpoint "pipeline", you can simply search by this endpoint using search field
+7. Check URL and get apiCircleUrl, circleOrgSlug and repo values from there
+8. Update corresponding fields with values above in ../../../helpers/api/apiCircleCi/ApiCircleCi , make pull request and merge this
 
 - Also it needs to create your personal CircleCi API token, please take a look at following information https://circleci.com/docs/managing-api-tokens/
       After creation personal API token you can update circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi , and push you changes.
