@@ -82,8 +82,8 @@ Setup
 - To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values
 
 You can get these values like that:
-    1. Go to project on CircleCI
-    2. Select your branch via filter drop-down
+    1. Go to project on CircleCI.
+    2. Select your branch via filter drop-down.
     3. Click 'Trigger Pipeline' button
     4. open dev tools in your browser and go to 'Network' tab (this step can be different depending on your browser, please google how to check requests in your browser)
     5. Click 'Trigger Pipeline' button
