@@ -71,15 +71,15 @@ Api requests that are used here are placed in `cypress/helpers/api/apiCircleCi/A
 Api payloads that are used here are placed in `cypress/helpers/api/apiCircleCi/ApiCircleCiData.js`.
 
 
-     This script will help with getting more successful builds while running regression by automatically rerun only failed jobs.
+This script will help with getting more successful builds while running regression by automatically rerun only failed jobs.
 
-     Auto-rerun is limitted to 3 times by default.
+Auto-rerun is limitted to 3 times by default.
 
-     *****
-     Setup
-     *****
+*****
+Setup
+*****
 
-     - To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values
+- To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values
      You can get these values like that:
         1. Go to project on CircleCI
         2. Select your branch via filter drop-down
