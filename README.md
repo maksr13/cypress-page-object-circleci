@@ -148,6 +148,7 @@ But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline
 from command line, run this command
 
 ./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --config-file cypress/config/staging.config.js
+    
     - Automatically rerun failed jobs for the passed Workflow Id. From command line, run following command (change WORKFLOW_ID  to Workflow Id of pipeline that you want to automatically Rerun From Failed  +  change config file staging.config.js to another env if it's needed)
 
 ./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --env circle-workflow-id=WORKFLOW_ID --config-file cypress/config/staging.config.js
