@@ -80,7 +80,7 @@ Setup
 *****
 
 - To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values
-     You can get these values like that:
+    You can get these values like that:
         1. Go to project on CircleCI
         2. Select your branch via filter drop-down
         3. Click 'Trigger Pipeline' button
@@ -90,7 +90,7 @@ Setup
         7. Check URL and get apiCircleUrl, circleOrgSlug and repo values from there
         8. Update corresponding fields with values above in ../../../helpers/api/apiCircleCi/ApiCircleCi , make pull request and merge this
 
-    - Also it needs to create your personal CircleCi API token, please take a look at following information https://circleci.com/docs/managing-api-tokens/
+- Also it needs to create your personal CircleCi API token, please take a look at following information https://circleci.com/docs/managing-api-tokens/
       After creation personal API token you can update circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi , and push you changes.
       But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline (please see 'Usage' part of the README)
 
