@@ -74,7 +74,7 @@ Config files:
 
 - Auto-rerun is limitted to 3 times by default.
 
-#### Setup
+#### :gear: Setup
 
 - To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values
 
@@ -92,7 +92,7 @@ You can get these values like that:
 - After creation personal API token you can update circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi , and push you changes.
 But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline (please see 'Usage' part of the README)
 
-#### Usage
+#### :heavy_check_mark: Usage
 
 - For using this just add parameter RERUN with value 'true' (or any other value except 'not'), for example:
 
