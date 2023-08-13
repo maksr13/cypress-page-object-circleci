@@ -90,7 +90,7 @@ You can get these values like that:
 
 - Also it needs to create your personal CircleCi API token, please take a look at following information https://circleci.com/docs/managing-api-tokens.
 - After creation personal API token you can update circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi , and push you changes.
-But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline (please see 'Usage' part of the README).
+But for security it's better to use CIRCLE_TOKEN parameter while triggering pipeline (please see 'Usage' part of the README).
 
 #### :heavy_check_mark: Usage
 
