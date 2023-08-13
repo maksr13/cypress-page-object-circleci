@@ -100,21 +100,21 @@ But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline
 2. Select your branch via filter drop-down
 3. Click 'Trigger Pipeline' button
 4. Add parameter:
-           Parameter type - string
-           Name           - ENV
-           Value          - prod
+    - Parameter type - string
+    - Name           - ENV
+    - Value          - prod
 5. Add parameter:
-           Parameter type - string
-           Name           - SPEC
-           Value          - regression
+    - Parameter type - string
+    - Name           - SPEC
+    - Value          - regression
 6. Add parameter:
-           Parameter type - string
-           Name           - RERUN
-           Value          - true (or any other value except 'not')
+    - Parameter type - string
+    - Name           - RERUN
+    - Value          - true (or any other value except 'not')
 7. Add parameter: (it should be used only if you don't have the updated circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi)
-           Parameter type - string
-           Name           - CIRCLE_TOKEN
-           Value          - your personal CircleCi API token (please, see 'Setup' part)
+    - Parameter type - string
+    - Name           - CIRCLE_TOKEN
+    - Value          - your personal CircleCi API token (please, see 'Setup' part)
 8. Click 'Trigger Pipeline' button and refresh the page (new pipeline will be displayed) and if few jobs will be failed, then they will be rerun automatically
 
 
