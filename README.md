@@ -74,7 +74,7 @@ Config files:
 
 - Auto-rerun is limitted to 3 times by default.
 
-# Setup
+#### Setup
 
 - To start using this script, please go to ../../../helpers/api/apiCircleCi/ApiCircleCi file and update apiCircleUrl, circleOrgSlug, repo and circleToken to corresponding values
 
@@ -92,7 +92,7 @@ You can get these values like that:
 - After creation personal API token you can update circleToken field in the ../../../helpers/api/apiCircleCi/ApiCircleCi , and push you changes.
 But for security it's better to CIRCLE_TOKEN parameter while triggering pipeline (please see 'Usage' part of the README)
 
-# Usage
+#### Usage
 
 - For using this just add parameter RERUN with value 'true' (or any other value except 'not'), for example:
 
@@ -151,7 +151,7 @@ from command line, run this command
 ./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --config-file cypress/config/staging.config.js
 
 - Automatically rerun failed jobs for the passed Workflow Id
-    - from command line, run this command (change WORKFLOW_ID  to Workflow Id of pipeline that you want to automatically Rerun From Failed  +  change config file staging.config.js to another env if it's needed)
+    - From command line, run this command (change WORKFLOW_ID  to Workflow Id of pipeline that you want to automatically Rerun From Failed  +  change config file staging.config.js to another env if it's needed)
 
 ./node_modules/.bin/cypress run --spec cypress/e2e/rerun_workflow_auto/rerun_workflow_auto.cy.js --env circle-workflow-id=WORKFLOW_ID --config-file cypress/config/staging.config.js
 
